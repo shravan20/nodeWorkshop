@@ -1,0 +1,17 @@
+
+mkdir projectFolderName
+
+
+cd projectFolderName
+
+gedit index.js 
+
+// write the code 
+// save the code
+
+
+//in the terminal; write the command
+
+node index.js
+
+
