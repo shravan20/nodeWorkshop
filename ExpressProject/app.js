@@ -38,4 +38,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+var mongoose = require('mongoose');
+var uri = 'mongodb://localhost:27017/learning';
+mongoose.connect(uri, function(err){
+if (err) throw err;
+// if no error == connected
+});
+
+
+
 module.exports = app;
