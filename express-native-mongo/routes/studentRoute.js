@@ -10,6 +10,7 @@ router.delete('/remove', controller.remStudent);
 
 
 // to get single student data using his Id
-router.get('/studentBio', controller.findStudent);
+router.get('/studentBio/:id', controller.findStudent);
+
 
 module.exports = router

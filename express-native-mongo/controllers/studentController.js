@@ -20,6 +20,7 @@ const addStudent = async (req, res, next) => {
         const sendData = {
             addedData : result
         };
+
         res.send(sendData);
     }
     catch(err){
@@ -35,7 +36,7 @@ const remStudent = async (req, res, next) => {
         const client = await databaseObj.connectToClient(url);
         const db = await databaseObj.connectToDB(client,'testdb');
         const result = await databaseObj.removeStudent( db, req.body);
-        
+
         const sendData = {
             deletedData : result
         };
@@ -49,8 +50,15 @@ const remStudent = async (req, res, next) => {
 };
 
 
-const findStudent = (req, res, next) =>{
-    res.send('Found Student');
+const findStudent = async (req, res, next) =>{
+    
+    const client = await databaseObj.connectToClient(url);
+    const db = await databaseObj.connectToDB(client,'testdb')
+    const result = await databaseObj.findStudent(db,req.params);
+    console.log(result);
+    const sendData = result;
+    res.send(sendData);
+
 };
 
 module.exports = {

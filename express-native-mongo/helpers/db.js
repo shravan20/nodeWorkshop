@@ -39,6 +39,7 @@
 */
 // 1) async & 2) await
 const mongoClient = require('mongodb').MongoClient;
+const ObjectID = require('mongodb').ObjectID;
 
 const connectToClient = async (url) =>{
 		
@@ -52,10 +53,10 @@ const connectToDB = (client, dbName) => {
 }
 
 
-const findSingleStudent= async (db) => {
+const findStudent= async (db, params) => {
 
-		let x = await db.collection('student').findOne();
-		return x;
+		let studentData = await db.collection('student').findOne({'_id':ObjectID(params.id)});
+		return studentData;
 	
 }
 
@@ -67,13 +68,13 @@ const createStudent = async (db, data) => {
 };
 
 const removeStudent = async (db, data) => {
-
-	let studentData = await db.collection('student').remove(data.id);
+    															//_id = = data.id	
+	let studentData = await db.collection('student').deleteOne({ _id : ObjectID(data.id) });
 	return studentData;
 };
 
 module.exports = {
-connectToClient,connectToDB,findSingleStudent,createStudent,
+connectToClient, connectToDB,findStudent,createStudent,
 removeStudent
 }
 
