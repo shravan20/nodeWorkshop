@@ -54,6 +54,9 @@ const findStudent = async (req, res, next) =>{
     
     const client = await databaseObj.connectToClient(url);
     const db = await databaseObj.connectToDB(client,'testdb')
+
+    // validation(req.params)
+
     const result = await databaseObj.findStudent(db,req.params);
     console.log(result);
     const sendData = result;
