@@ -1,0 +1,7 @@
+
+Tasks for the day:
+
+    1) create router '/students'
+2)using that route, to add a student
+3)delete a student
+4) find student by Id

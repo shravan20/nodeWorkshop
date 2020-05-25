@@ -1,3 +1,4 @@
+
 // callback way of writing code //
 
 /*mongoClient.connect(url, function(err, client){
@@ -38,45 +39,3 @@
 		     });
 */
 // 1) async & 2) await
-const mongoClient = require('mongodb').MongoClient;
-
-const connectToClient = async (url) =>{
-		
-		return await mongoClient.connect(url);
-}
-
-const connectToDB = (client, dbName) => {
-
-	return client.db(dbName);
-
-}
-
-
-const findSingleStudent= async (db) => {
-
-		let x = await db.collection('student').findOne();
-		return x;
-	
-}
-
-const createStudent = async (db, data) => {
-
-	let studentData = await db.collection('student').save(data);
-	return studentData;
-
-};
-
-const removeStudent = async (db, data) => {
-
-	let studentData = await db.collection('student').remove(data.id);
-	return studentData;
-};
-
-module.exports = {
-connectToClient,connectToDB,findSingleStudent,createStudent,
-removeStudent
-}
-
-
-
-
