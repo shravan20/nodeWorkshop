@@ -11,6 +11,6 @@ router.delete('/remove', controller.removeStudent);
 
 
 // find student by Id
-router.get('/studentBio/', controller.findStudent);
-
+router.get('/studentBio/:_id', controller.findStudent);
+            
 module.exports = router;

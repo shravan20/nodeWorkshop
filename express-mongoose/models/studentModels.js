@@ -8,6 +8,6 @@ const studentSchema = mongoose.Schema({
 });
 
 const Student = mongoose.model("Student", studentSchema, "student");
-
+                               
 module.exports = Student;
 
